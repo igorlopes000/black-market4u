@@ -5,6 +5,8 @@ import bg04 from "@/assets/bg-slide-04.jpg";
 import bg05 from "@/assets/bg-slide-05.jpg";
 import bg06 from "@/assets/bg-slide-06.jpg";
 import bg07 from "@/assets/bg-slide-07.jpg";
+import bg08 from "@/assets/bg-slide-08.jpg";
+import { ShoppingCart, Smartphone, Zap } from "lucide-react";
 import { Body, Footer, Kicker, Reveal, SlideBg, Title } from "./SlideChrome";
 
 const FOOTER = "Market4u • Black Friday 2026 • Uso comercial";
