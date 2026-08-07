@@ -173,21 +173,21 @@ function Architecture() {
 const CARDS = [
   {
     name: "Comando Black",
-    value: "R$ 100.000",
+    value: "R$100.000",
     slots: "2 vagas",
     accent: "var(--deck-gold)",
     left: "9.9%",
   },
   {
     name: "Tático Black",
-    value: "R$ 70.000",
+    value: "R$70.000",
     slots: "4 vagas",
     accent: "var(--deck-green)",
     left: "39.6%",
   },
   {
     name: "Presença Black",
-    value: "R$ 40.000",
+    value: "R$40.000",
     slots: "Vagas abertas",
     accent: "var(--deck-silver)",
     left: "69.3%",
