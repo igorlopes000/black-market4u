@@ -211,6 +211,73 @@ const CARDS = [
   },
 ];
 
+const EXCLUSIVES = [
+  {
+    icon: Zap,
+    title: "Pop-up de abertura",
+    description: "Slot exclusivo no dia da Black Friday: impacto máximo logo na entrada do app.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Banner checkout",
+    description: "Presença exclusiva no fechamento da compra, a última impressão antes da conversão.",
+  },
+  {
+    icon: Smartphone,
+    title: "Push notification",
+    description: "3 disparos/semana com alcance direto na palma do shopper, exclusivo no dia da Black.",
+  },
+];
+
+function BlackFridayExclusives() {
+  return (
+    <>
+      <SlideBg src={bg08} overlay="radial" />
+      <div className="relative flex h-full flex-col items-center justify-center px-[7%] text-center">
+        <Reveal>
+          <Kicker>Dia da Black Friday</Kicker>
+          <Title className="!text-[clamp(34px,5.6vw,80px)]">A jogada que vale mais</Title>
+        </Reveal>
+        <Reveal delay={0.15} className="mt-4 max-w-[1100px]">
+          <Body className="!text-[clamp(16px,1.9vw,28px)]">
+            No dia da partida, quem tem Comando Black leva vantagem em três lances exclusivos.
+          </Body>
+        </Reveal>
+
+        <Reveal delay={0.3} className="mt-[5vh] w-full max-w-[1400px]">
+          <ul className="grid grid-cols-3 gap-[2.5vw] max-md:grid-cols-1">
+            {EXCLUSIVES.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <li
+                  key={item.title}
+                  className="flex flex-col items-center gap-[2vh] rounded-2xl border border-deck-gold/30 bg-deck-glass/60 px-[2vw] py-[3.5vh] text-center backdrop-blur-sm"
+                >
+                  <Reveal delay={0.45 + i * 0.12} className="flex flex-col items-center gap-[2vh]">
+                    <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full border border-deck-gold/40 bg-deck-gold/10 text-deck-gold max-md:h-14 max-md:w-14">
+                      <Icon size={32} strokeWidth={1.5} className="max-md:h-6 max-md:w-6" />
+                    </span>
+                    <h3 className="font-display text-[clamp(18px,1.8vw,32px)] font-semibold uppercase tracking-wide text-deck-title">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-[clamp(13px,1.15vw,20px)] leading-relaxed text-deck-body">
+                      {item.description}
+                    </p>
+                    <span className="mt-2 rounded-full border border-deck-gold px-[1em] py-[0.35em] font-sans text-[clamp(10px,0.85vw,14px)] font-semibold uppercase tracking-[0.16em] text-deck-gold">
+                      Exclusivo Comando Black
+                    </span>
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
+      </div>
+      <Footer center>{FOOTER}</Footer>
+    </>
+  );
+}
+
 function Investment() {
   return (
     <>
