@@ -29,17 +29,7 @@ function Cover() {
   );
 }
 
-function Narrative({
-  src,
-  kicker,
-  title,
-  body,
-}: {
-  src: string;
-  kicker: string;
-  title: string;
-  body: string;
-}) {
+function Narrative({ src, kicker, title, body }: { src: string; kicker: string; title: string; body: string }) {
   return (
     <>
       <SlideBg src={src} />
@@ -133,9 +123,7 @@ function Architecture() {
           <Title className="!text-[clamp(30px,4.4vw,60px)]">Arquitetura Operacional</Title>
         </Reveal>
         <Reveal delay={0.12} className="mt-4">
-          <Body className="!text-[clamp(15px,1.8vw,24px)]">
-            Do pop-up ao checkout, sua marca acompanha o shopper.
-          </Body>
+          <Body className="!text-[clamp(15px,1.8vw,24px)]">Do pop-up ao checkout, sua marca acompanha o shopper.</Body>
         </Reveal>
 
         <Reveal delay={0.25} className="mt-[4vh] w-full max-w-[1500px]">
@@ -169,10 +157,7 @@ function Architecture() {
                     {r.media}
                   </th>
                   {r.values.map((v, i) => (
-                    <td
-                      key={i}
-                      className="py-[1.05vh] pr-4 font-sans text-[clamp(11px,1.05vw,17px)] text-deck-body"
-                    >
+                    <td key={i} className="py-[1.05vh] pr-4 font-sans text-[clamp(11px,1.05vw,17px)] text-deck-body">
                       {v}
                     </td>
                   ))}
@@ -190,21 +175,21 @@ function Architecture() {
 const CARDS = [
   {
     name: "Comando Black",
-    value: "R$ 50.000",
+    value: "R$ 100.000",
     slots: "2 vagas",
     accent: "var(--deck-gold)",
     left: "9.9%",
   },
   {
     name: "Tático Black",
-    value: "R$ 35.000",
+    value: "R$ 70.000",
     slots: "4 vagas",
     accent: "var(--deck-green)",
     left: "39.6%",
   },
   {
     name: "Presença Black",
-    value: "R$ 20.000",
+    value: "R$ 40.000",
     slots: "Vagas abertas",
     accent: "var(--deck-silver)",
     left: "69.3%",
@@ -314,9 +299,7 @@ function Investment() {
               <span className="font-display text-[clamp(26px,3.2vw,52px)] font-semibold leading-none text-deck-title">
                 {c.value}
               </span>
-              <span className="font-sans text-[clamp(12px,1.15vw,20px)] font-medium text-deck-body">
-                {c.slots}
-              </span>
+              <span className="font-sans text-[clamp(12px,1.15vw,20px)] font-medium text-deck-body">{c.slots}</span>
             </Reveal>
           </li>
         ))}
