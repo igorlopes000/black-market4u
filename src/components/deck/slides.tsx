@@ -81,13 +81,15 @@ function Mechanics() {
   return (
     <>
       <SlideBg src={bg04} />
-      <div className="relative flex h-full flex-col justify-start px-[7%] pt-[8vh]">
+      <div className="relative flex h-full max-w-[62%] flex-col justify-start px-[7%] pt-[6vh] max-md:max-w-full">
         <Reveal>
           <Kicker>Mecânica</Kicker>
-          <Title>Três peças, um tabuleiro</Title>
+          <Title className="!text-[clamp(26px,4vw,58px)]">Três peças, um tabuleiro</Title>
         </Reveal>
-        <Reveal delay={0.15} className="mt-4">
-          <Body>Comando, Tático e Presença: níveis claros de visibilidade.</Body>
+        <Reveal delay={0.15} className="mt-3">
+          <Body className="!text-[clamp(14px,1.6vw,22px)]">
+            Comando, Tático e Presença: níveis claros de visibilidade.
+          </Body>
         </Reveal>
       </div>
       <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:gap-4 max-md:px-[7%]">
@@ -95,7 +97,7 @@ function Mechanics() {
           <li
             key={p.name}
             className="absolute flex flex-col items-center gap-[0.8vh] text-center max-md:static max-md:w-full"
-            style={{ left: p.left, top: "46%", width: "20%" }}
+            style={{ left: p.left, top: "49%", width: "20%" }}
           >
             <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[0.8vh]">
               <span
