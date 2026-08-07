@@ -95,7 +95,7 @@ function Mechanics() {
           <li
             key={p.name}
             className="absolute flex flex-col items-center gap-[0.8vh] text-center max-md:static max-md:w-full"
-            style={{ left: p.left, top: "40%", width: "20%" }}
+            style={{ left: p.left, top: "46%", width: "20%" }}
           >
             <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[0.8vh]">
               <span
@@ -212,12 +212,12 @@ function Investment() {
     <>
       <SlideBg src={bg06} />
       <div className="relative h-full px-[6%] text-center">
-        <Reveal className="pt-[5vh]">
+        <Reveal className="pt-[2.5vh]">
           <Kicker>Investimento</Kicker>
-          <Title>Investimento</Title>
+          <Title className="!text-[clamp(28px,4.4vw,64px)]">Investimento</Title>
         </Reveal>
-        <Reveal delay={0.15} className="mt-3">
-          <Body>Peças limitadas para jogar com prioridade.</Body>
+        <Reveal delay={0.15} className="mt-2">
+          <Body className="!text-[clamp(14px,1.7vw,22px)]">Peças limitadas para jogar com prioridade.</Body>
         </Reveal>
       </div>
       <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:grid-cols-1 max-md:gap-4 max-md:px-[6%]">
