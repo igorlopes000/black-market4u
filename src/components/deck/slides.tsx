@@ -71,6 +71,56 @@ const ROWS: { media: string; values: [string, string, string] }[] = [
   { media: "Comunicações Market4u", values: ["Incluso", "Incluso", "—"] },
 ];
 
+const PIECES = [
+  { name: "Comando Black", period: "Mês", accent: "var(--deck-gold)", left: "13.7%" },
+  { name: "Tático Black", period: "Quinzena", accent: "var(--deck-green)", left: "40.3%" },
+  { name: "Presença Black", period: "Semana", accent: "var(--deck-silver)", left: "66.6%" },
+];
+
+function Mechanics() {
+  return (
+    <>
+      <SlideBg src={bg04} />
+      <div className="relative flex h-full max-w-[62%] flex-col justify-start px-[7%] pt-[6vh] max-md:max-w-full">
+        <Reveal>
+          <Kicker>Mecânica</Kicker>
+          <Title className="!text-[clamp(26px,4vw,58px)]">Três peças, um tabuleiro</Title>
+        </Reveal>
+        <Reveal delay={0.15} className="mt-3">
+          <Body className="!text-[clamp(14px,1.6vw,22px)]">
+            Comando, Tático e Presença: níveis claros de visibilidade.
+          </Body>
+        </Reveal>
+      </div>
+      <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:gap-4 max-md:px-[7%]">
+        {PIECES.map((p, i) => (
+          <li
+            key={p.name}
+            className="absolute flex flex-col items-center gap-[0.8vh] text-center max-md:static max-md:w-full"
+            style={{ left: p.left, top: "43%", width: "20%" }}
+          >
+            <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[0.8vh]">
+              <span
+                className="font-display text-[clamp(14px,1.6vw,28px)] font-semibold uppercase tracking-wide"
+                style={{ color: p.accent }}
+              >
+                {p.name}
+              </span>
+              <span
+                className="rounded-full border px-[0.9em] py-[0.35em] font-sans text-[clamp(11px,1.05vw,18px)] font-semibold uppercase tracking-[0.16em] text-deck-title"
+                style={{ borderColor: p.accent }}
+              >
+                {p.period}
+              </span>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+      <Footer>{FOOTER}</Footer>
+    </>
+  );
+}
+
 function Architecture() {
   return (
     <>
@@ -136,47 +186,72 @@ function Architecture() {
 }
 
 const CARDS = [
-  { name: "Comando Black", value: "R$ 50.000", slots: "2 vagas", accent: "var(--deck-gold)" },
-  { name: "Tático Black", value: "R$ 35.000", slots: "4 vagas", accent: "var(--deck-green)" },
-  { name: "Presença Black", value: "R$ 20.000", slots: "Vagas abertas", accent: "var(--deck-silver)" },
+  {
+    name: "Comando Black",
+    value: "R$ 50.000",
+    slots: "2 vagas",
+    accent: "var(--deck-gold)",
+    left: "9.9%",
+  },
+  {
+    name: "Tático Black",
+    value: "R$ 35.000",
+    slots: "4 vagas",
+    accent: "var(--deck-green)",
+    left: "39.6%",
+  },
+  {
+    name: "Presença Black",
+    value: "R$ 20.000",
+    slots: "Vagas abertas",
+    accent: "var(--deck-silver)",
+    left: "69.3%",
+  },
 ];
 
 function Investment() {
   return (
     <>
       <SlideBg src={bg06} />
-      <div className="relative flex h-full flex-col items-center justify-center px-[6%] text-center">
-        <Reveal>
+      <div className="relative h-full px-[6%] text-center">
+        <Reveal className="pt-[2.5vh]">
           <Kicker>Investimento</Kicker>
-          <Title>Investimento</Title>
+          <Title className="!text-[clamp(28px,4.4vw,64px)]">Investimento</Title>
         </Reveal>
-        <Reveal delay={0.15} className="mt-5">
-          <Body>Peças limitadas para jogar com prioridade.</Body>
+        <Reveal delay={0.15} className="mt-2">
+          <Body className="!text-[clamp(14px,1.7vw,22px)]">Peças limitadas para jogar com prioridade.</Body>
         </Reveal>
-        <ul className="mt-[6vh] grid w-full grid-cols-3 gap-0 pl-[6%] pr-[4%] max-md:grid-cols-1 max-md:gap-4 max-md:px-[6%]">
-          {CARDS.map((c, i) => (
-            <Reveal key={c.name} delay={0.3 + i * 0.1}>
-              <li
-                className="mx-auto flex w-full max-w-[290px] flex-col items-center gap-3 rounded-2xl border bg-deck-glass px-6 py-8 max-md:max-w-none max-md:py-5"
-                style={{ borderColor: c.accent }}
-              >
-                <span
-                  className="font-display text-[clamp(16px,1.6vw,26px)] font-semibold uppercase tracking-wide"
-                  style={{ color: c.accent }}
-                >
-                  {c.name}
-                </span>
-                <span className="font-display text-[clamp(30px,3.6vw,56px)] font-semibold text-deck-title">
-                  {c.value}
-                </span>
-                <span className="font-sans text-[clamp(13px,1.2vw,20px)] font-medium text-deck-body">
-                  {c.slots}
-                </span>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
       </div>
+      <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:grid-cols-1 max-md:gap-4 max-md:px-[6%]">
+        {CARDS.map((c, i) => (
+          <li
+            key={c.name}
+            className="absolute flex flex-col items-center justify-center gap-[1.5vh] px-[1.5%] text-center max-md:static max-md:w-full max-md:rounded-2xl max-md:border max-md:bg-deck-glass max-md:py-5"
+            style={{
+              left: c.left,
+              top: "21%",
+              width: "20.8%",
+              height: "50%",
+              borderColor: c.accent,
+            }}
+          >
+            <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[1.5vh]">
+              <span
+                className="font-display text-[clamp(14px,1.5vw,26px)] font-semibold uppercase tracking-wide"
+                style={{ color: c.accent }}
+              >
+                {c.name}
+              </span>
+              <span className="font-display text-[clamp(26px,3.2vw,52px)] font-semibold leading-none text-deck-title">
+                {c.value}
+              </span>
+              <span className="font-sans text-[clamp(12px,1.15vw,20px)] font-medium text-deck-body">
+                {c.slots}
+              </span>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
       <Footer center>{FOOTER}</Footer>
     </>
   );
@@ -193,15 +268,6 @@ function Closing() {
         </Reveal>
         <Reveal delay={0.15} className="mt-6">
           <Body>O tabuleiro está montado e as peças são limitadas.</Body>
-        </Reveal>
-        <Reveal delay={0.3} className="mt-8">
-          <a
-            href="mailto:vendas@market4u.com.br?subject=Black%20Friday%20Market4u%202026%20%E2%80%94%20Pacote%20de%20m%C3%ADdia"
-            className="inline-flex items-center justify-center rounded-full border border-deck-green bg-deck-green/10 px-8 py-4 font-sans font-semibold uppercase tracking-[0.12em] text-deck-title transition-colors hover:bg-deck-green hover:text-deck-black"
-            style={{ fontSize: "clamp(14px,1.4vw,20px)" }}
-          >
-            Fale com o seu gerente Market4u
-          </a>
         </Reveal>
       </div>
       <Footer center>Venha jogar com a gente.</Footer>
@@ -235,21 +301,7 @@ export const SLIDES = [
   },
   {
     id: "mecanica",
-    render: () => (
-      <div className="h-full">
-        <SlideBg src={bg04} />
-        <div className="relative flex h-full flex-col justify-start px-[7%] pt-[10vh]">
-          <Reveal>
-            <Kicker>Mecânica</Kicker>
-            <Title>Três peças, um tabuleiro</Title>
-          </Reveal>
-          <Reveal delay={0.15} className="mt-5">
-            <Body>Comando, Tático e Presença: níveis claros de visibilidade.</Body>
-          </Reveal>
-        </div>
-        <Footer>{FOOTER}</Footer>
-      </div>
-    ),
+    render: () => <Mechanics />,
   },
   { id: "arquitetura", render: () => <Architecture /> },
   { id: "investimento", render: () => <Investment /> },
