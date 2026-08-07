@@ -79,9 +79,7 @@ function Mechanics() {
           <Title className="!text-[clamp(26px,4vw,58px)]">Três peças, um tabuleiro</Title>
         </Reveal>
         <Reveal delay={0.15} className="mt-3">
-          <Body className="!text-[clamp(14px,1.6vw,22px)]">
-            Comando, Tático e Presença: níveis claros de visibilidade.
-          </Body>
+          <Body className="!text-[clamp(14px,1.6vw,22px)]">Faça sua jogada.</Body>
         </Reveal>
       </div>
       <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:gap-4 max-md:px-[7%]">
