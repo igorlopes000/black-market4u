@@ -71,10 +71,6 @@ const ROWS: { media: string; values: [string, string, string] }[] = [
   { media: "Comunicações Market4u", values: ["Incluso", "Incluso", "—"] },
 ];
 
-function Architecture() {
-  return null;
-}
-
 const PIECES = [
   { name: "Comando Black", period: "Mês", accent: "var(--deck-gold)", left: "13.7%" },
   { name: "Tático Black", period: "Quinzena", accent: "var(--deck-green)", left: "40.3%" },
@@ -123,7 +119,7 @@ function Mechanics() {
   );
 }
 
-function ArchitectureImpl() {
+function Architecture() {
   return (
     <>
       <SlideBg src={bg05} />
@@ -303,21 +299,7 @@ export const SLIDES = [
   },
   {
     id: "mecanica",
-    render: () => (
-      <div className="h-full">
-        <SlideBg src={bg04} />
-        <div className="relative flex h-full flex-col justify-start px-[7%] pt-[10vh]">
-          <Reveal>
-            <Kicker>Mecânica</Kicker>
-            <Title>Três peças, um tabuleiro</Title>
-          </Reveal>
-          <Reveal delay={0.15} className="mt-5">
-            <Body>Comando, Tático e Presença: níveis claros de visibilidade.</Body>
-          </Reveal>
-        </div>
-        <Footer>{FOOTER}</Footer>
-      </div>
-    ),
+    render: () => <Mechanics />,
   },
   { id: "arquitetura", render: () => <Architecture /> },
   { id: "investimento", render: () => <Investment /> },
