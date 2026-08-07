@@ -373,6 +373,7 @@ export const SLIDES = [
     render: () => <Mechanics />,
   },
   { id: "arquitetura", render: () => <Architecture /> },
+  { id: "black-friday", render: () => <BlackFridayExclusives /> },
   { id: "investimento", render: () => <Investment /> },
   { id: "fechamento", render: () => <Closing /> },
 ];
