@@ -72,6 +72,58 @@ const ROWS: { media: string; values: [string, string, string] }[] = [
 ];
 
 function Architecture() {
+  return null;
+}
+
+const PIECES = [
+  { name: "Comando Black", period: "Mês", accent: "var(--deck-gold)", left: "13.7%" },
+  { name: "Tático Black", period: "Quinzena", accent: "var(--deck-green)", left: "40.3%" },
+  { name: "Presença Black", period: "Semana", accent: "var(--deck-silver)", left: "66.6%" },
+];
+
+function Mechanics() {
+  return (
+    <>
+      <SlideBg src={bg04} />
+      <div className="relative flex h-full flex-col justify-start px-[7%] pt-[8vh]">
+        <Reveal>
+          <Kicker>Mecânica</Kicker>
+          <Title>Três peças, um tabuleiro</Title>
+        </Reveal>
+        <Reveal delay={0.15} className="mt-4">
+          <Body>Comando, Tático e Presença: níveis claros de visibilidade.</Body>
+        </Reveal>
+      </div>
+      <ul className="absolute inset-0 max-md:static max-md:mt-6 max-md:grid max-md:gap-4 max-md:px-[7%]">
+        {PIECES.map((p, i) => (
+          <li
+            key={p.name}
+            className="absolute flex flex-col items-center gap-[0.8vh] text-center max-md:static max-md:w-full"
+            style={{ left: p.left, top: "40%", width: "20%" }}
+          >
+            <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[0.8vh]">
+              <span
+                className="font-display text-[clamp(14px,1.6vw,28px)] font-semibold uppercase tracking-wide"
+                style={{ color: p.accent }}
+              >
+                {p.name}
+              </span>
+              <span
+                className="rounded-full border px-[0.9em] py-[0.35em] font-sans text-[clamp(11px,1.05vw,18px)] font-semibold uppercase tracking-[0.16em] text-deck-title"
+                style={{ borderColor: p.accent }}
+              >
+                {p.period}
+              </span>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+      <Footer>{FOOTER}</Footer>
+    </>
+  );
+}
+
+function ArchitectureImpl() {
   return (
     <>
       <SlideBg src={bg05} />
