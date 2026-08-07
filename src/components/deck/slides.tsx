@@ -97,7 +97,7 @@ function Mechanics() {
           <li
             key={p.name}
             className="absolute flex flex-col items-center gap-[0.8vh] text-center max-md:static max-md:w-full"
-            style={{ left: p.left, top: "49%", width: "20%" }}
+            style={{ left: p.left, top: "43%", width: "20%" }}
           >
             <Reveal delay={0.3 + i * 0.1} className="flex flex-col items-center gap-[0.8vh]">
               <span
