@@ -22,10 +22,12 @@ export async function exportDeckToPdf({
   ]);
 
   let pdf: import("jspdf").jsPDF | null = null;
+  document.documentElement.classList.add("deck-exporting");
 
+  try {
   for (let i = 0; i < total; i++) {
     showSlide(i);
-    await sleep(i === 0 ? 900 : 1100);
+    await sleep(i === 0 ? 700 : 900);
 
     const canvas = await html2canvas(stage, {
       scale: Math.min(2, window.devicePixelRatio * 1.5),
