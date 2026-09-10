@@ -72,6 +72,7 @@ export function Reveal({
   const reduce = useReducedMotion();
   return (
     <motion.div
+      data-reveal=""
       initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: reduce ? 0 : delay, ease: [0.22, 1, 0.36, 1] }}

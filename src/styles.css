@@ -153,6 +153,18 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+/* While exporting to PDF, force revealed content to its final state so the
+   snapshot never captures mid-animation (or pre-animation) opacity. */
+.deck-exporting [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.deck-exporting .backdrop-blur-sm {
+  backdrop-filter: none !important;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
