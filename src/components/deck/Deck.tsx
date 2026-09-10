@@ -64,6 +64,22 @@ export function Deck() {
     return () => document.removeEventListener("fullscreenchange", onFs);
   }, []);
 
+  const handleExport = useCallback(async () => {
+    const stage = stageRef.current;
+    if (!stage || exporting) return;
+    setExporting(true);
+    setHint(false);
+    const current = index;
+    try {
+      await exportDeckToPdf({ stage, total: SLIDES.length, showSlide: goTo });
+    } catch (err) {
+      console.error("PDF export failed", err);
+    } finally {
+      goTo(current);
+      setExporting(false);
+    }
+  }, [exporting, goTo, index]);
+
   const slide = SLIDES[index] ?? SLIDES[0]!;
   const progress = ((index + 1) / SLIDES.length) * 100;
 
