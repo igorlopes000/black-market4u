@@ -1,14 +1,17 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronLeft, ChevronRight, Maximize, Minimize } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileDown, Loader2, Maximize, Minimize } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SLIDES } from "./slides";
+import { exportDeckToPdf } from "./exportPdf";
 
 export function Deck() {
   const [index, setIndex] = useState(0);
   const [isFs, setIsFs] = useState(false);
   const [hint, setHint] = useState(true);
+  const [exporting, setExporting] = useState(false);
   const reduce = useReducedMotion();
   const touchX = useRef<number | null>(null);
+  const stageRef = useRef<HTMLDivElement | null>(null);
 
   const go = useCallback((dir: number) => {
     setIndex((i) => Math.min(SLIDES.length - 1, Math.max(0, i + dir)));
