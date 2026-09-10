@@ -51,6 +51,9 @@ export async function exportDeckToPdf({
 
     pdf.addImage(img, "JPEG", 0, 0, canvas.width, canvas.height);
   }
+  } finally {
+    document.documentElement.classList.remove("deck-exporting");
+  }
 
   pdf?.save(fileName);
 }
