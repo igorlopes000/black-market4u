@@ -106,28 +106,50 @@ export function Deck() {
         />
       </div>
 
-      {/* Fullscreen toggle */}
-      <button
-        type="button"
-        aria-label={isFs ? "Sair da tela cheia" : "Tela cheia"}
-        onClick={toggleFs}
-        className="absolute right-[5%] top-[4%] z-20 flex h-10 w-10 items-center justify-center rounded-full border border-deck-hairline bg-deck-glass text-deck-title transition-colors hover:border-deck-green"
-      >
-        {isFs ? <Minimize size={18} /> : <Maximize size={18} />}
-      </button>
-
-      <AnimatePresence mode="wait">
-        <motion.section
-          key={slide.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: reduce ? 0 : 0.35, ease: "easeOut" }}
-          className="absolute inset-0"
+      {/* Top-right controls */}
+      <div className="absolute right-[5%] top-[4%] z-20 flex items-center gap-2">
+        <button
+          type="button"
+          aria-label="Baixar apresentação em PDF"
+          title="Baixar PDF"
+          onClick={handleExport}
+          disabled={exporting}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-deck-hairline bg-deck-glass text-deck-footer transition-colors hover:border-deck-green hover:text-deck-title disabled:opacity-60"
         >
-          {slide.render()}
-        </motion.section>
-      </AnimatePresence>
+          {exporting ? <Loader2 size={17} className="animate-spin" /> : <FileDown size={17} />}
+        </button>
+        <button
+          type="button"
+          aria-label={isFs ? "Sair da tela cheia" : "Tela cheia"}
+          onClick={toggleFs}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-deck-hairline bg-deck-glass text-deck-title transition-colors hover:border-deck-green"
+        >
+          {isFs ? <Minimize size={18} /> : <Maximize size={18} />}
+        </button>
+      </div>
+
+      <div ref={stageRef} className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.section
+            key={slide.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.35, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            {slide.render()}
+          </motion.section>
+        </AnimatePresence>
+      </div>
+
+      {exporting && (
+        <div className="absolute inset-x-0 top-[4%] z-30 flex justify-center">
+          <span className="rounded-full border border-deck-hairline bg-deck-glass px-4 py-2 font-sans text-xs uppercase tracking-[0.16em] text-deck-title">
+            Gerando PDF…
+          </span>
+        </div>
+      )}
 
       {/* Slide dots */}
       <div className="absolute bottom-[5%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
